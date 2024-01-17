@@ -1,9 +1,12 @@
-var express = require('express');
-var router = express.Router();
+const mongoose = require('mongoose');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+mongoose.connect("mongodb://127.0.0.1:27017/instaclone");
 
-module.exports = router;
+const userSchema = mongoose.Schema({
+  username: String,
+  name: String,
+  email: String,
+  password: String,
+  profileImage: String,
+  posts: [{ type:mongoose.Schema.Types.ObjectId, ref: "post" }]
+})
