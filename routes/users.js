@@ -11,7 +11,7 @@ const userSchema = mongoose.Schema({
   posts: [{ type:mongoose.Schema.Types.ObjectId, ref: "post" }]
 });
 
-
+console.log("swastik here");
 userSchema.plugin(plm)
 
 module.exports = mongoose.model("user", userSchema)
